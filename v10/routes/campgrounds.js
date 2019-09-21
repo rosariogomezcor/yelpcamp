@@ -108,12 +108,9 @@ function checkCampgroundOwnership(req, res, next) {
 				}				
 			}
 		});		
-			//if yes, allow campground editing
-			//if not, redirect
 	} else {
 		res.redirect("back"); //this will redirect the user to the previous page they were on 
 	}
-	//if not, redirect
 }
 
 module.exports = router;
