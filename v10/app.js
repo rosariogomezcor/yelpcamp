@@ -24,7 +24,7 @@ app.use(methodOverride("_method"));
 
 //PASSPORT CONFIGURATION
 app.use(require("express-session")({
-	secret: "This is the top secret string", 
+	secret: "This isthe top secret string", 
 	resave: false, 
 	saveUninitialized: false
 })); 
