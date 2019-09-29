@@ -15,7 +15,9 @@ var commentRoutes = require("./routes/comments"),
 	campgroundRoutes = require("./routes/campgrounds"), 
 	indexRoutes = require("./routes/index"); //index = auth
 
-mongoose.connect(process.env.DATABASEURL, { //process.env.DATABASE URL is an environment variable, both defined in heroku and in my local machine
+var url = process.env.DATABASEURL || "mongodb://localhost:27017/yelp_camp_v3"; //process.env.DATABASE URL is an environment variable, both defined in heroku and in my local machine
+
+mongoose.connect(url, { 
 	useNewUrlParser: true, 
 	useCreateIndex: true
 }).then(() => {
