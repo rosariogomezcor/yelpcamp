@@ -15,10 +15,7 @@ var commentRoutes = require("./routes/comments"),
 	campgroundRoutes = require("./routes/campgrounds"), 
 	indexRoutes = require("./routes/index"); //index = auth
 
-//mongo connection
-// mongoose.connect("mongodb://localhost:27017/yelp_camp_v3", {useNewUrlParser: true} ); 	//local connection
-
-mongoose.connect('mongodb+srv://rosario:mongodb2019@cluster0-qgryv.mongodb.net/test?retryWrites=true&w=majority', {
+mongoose.connect(process.env.DATABASEURL, { //process.env.DATABASE URL is an environment variable, both defined in heroku and in my local machine
 	useNewUrlParser: true, 
 	useCreateIndex: true
 }).then(() => {
@@ -59,5 +56,5 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 
 //server listening...
 app.listen(process.env.PORT || 3000, function() {
-	console.log("YelpCamp server has started...");
+	console.log("YelpCamp server has started on port " + process.env.PORT);
 }); 
